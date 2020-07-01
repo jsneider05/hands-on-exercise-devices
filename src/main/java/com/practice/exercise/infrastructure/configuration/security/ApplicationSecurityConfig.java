@@ -19,7 +19,7 @@ import static com.practice.exercise.infrastructure.configuration.security.Applic
 
 @Configuration
 @EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
@@ -36,14 +36,14 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 //                .antMatchers("/v1/device/list").permitAll()
 //                .antMatchers("/v1/device/**").hasRole(USER.name())
-                .antMatchers(HttpMethod.POST,"/v1/device/**").hasAuthority(DEVICE_WRITE.getPermission())
+//                .antMatchers(HttpMethod.POST,"/v1/device/**").hasAuthority(DEVICE_WRITE.getPermission())
 //                .antMatchers(HttpMethod.POST,"/v1/device/**").hasAnyRole(ADMIN.name())
-                .antMatchers(HttpMethod.PUT,"/v1/device/**").hasAuthority(DEVICE_WRITE.getPermission())
+//                .antMatchers(HttpMethod.PUT,"/v1/device/**").hasAuthority(DEVICE_WRITE.getPermission())
 //                .antMatchers(HttpMethod.PUT,"/v1/device/**").hasAnyRole(ADMIN.name())
-                .antMatchers(HttpMethod.DELETE,"/v1/device/**").hasAuthority(DEVICE_WRITE.getPermission())
+//                .antMatchers(HttpMethod.DELETE,"/v1/device/**").hasAuthority(DEVICE_WRITE.getPermission())
 //                .antMatchers(HttpMethod.DELETE,"/v1/device/**").hasAnyRole(ADMIN.name())
 //                .antMatchers(HttpMethod.GET,"/v1/device/**").hasAuthority(DEVICE_READ.getPermission())
-                .antMatchers(HttpMethod.GET,"/v1/device/**").hasAnyRole(ADMIN.name(), ADMINTRAINEE.name())
+//                .antMatchers(HttpMethod.GET,"/v1/device/**").hasAnyRole(ADMIN.name(), ADMINTRAINEE.name())
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();

@@ -24,13 +24,13 @@ public class DeviceController {
 //    hasRole('ROLE_') hasAnyRole('ROLE_') hasAuthority('permission') hasAnyAuthority('permission')
 
     @GetMapping(value = "list")
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ADMINTRAINEE')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ADMINTRAINEE')")
     public List<Device> selectAllDevices() {
         return selectDeviceHandler.selectAllDevices();
     }
 
     @PostMapping(value = "save")
-//    @PreAuthorize("hasAuthority('device:write')")
+    @PreAuthorize("hasAuthority('device:write')")
     public Device saveDevice(@RequestBody DeviceCommand deviceCommand) {
         return this.saveDeviceHandler.saveDevice(deviceCommand);
     }

@@ -1,3 +1,11 @@
+server:
+  port: 8018
+  servlet:
+    session:
+      cookie:
+        secure: true
+    context-path: /api/practice
+
 spring:
   datasource:
     jdbc-url: jdbc:postgresql://localhost:5432/postgresdb
@@ -11,12 +19,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-
-#app:
-#  datasource:
-#    jdbc-url: jdbc:postgresql://localhost:5432/postgresdb
-#    username: postgres
-#    password: password
-#    poll-size: 30
-
-#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  output:
+    ansi:
+      enabled: ALWAYS

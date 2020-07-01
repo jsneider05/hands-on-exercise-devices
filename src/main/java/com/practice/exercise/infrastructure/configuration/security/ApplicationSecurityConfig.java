@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import static com.practice.exercise.infrastructure.configuration.security.ApplicationUserPermission.*;
 import static com.practice.exercise.infrastructure.configuration.security.ApplicationUserRole.*;
@@ -32,19 +33,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+//                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+//                .and()
                 .csrf().disable()
                 .authorizeRequests()
-//                .antMatchers("/v1/device/list").permitAll()
-//                .antMatchers("/v1/device/**").hasRole(USER.name())
-//                .antMatchers(HttpMethod.POST,"/v1/device/**").hasAuthority(DEVICE_WRITE.getPermission())
-//                .antMatchers(HttpMethod.POST,"/v1/device/**").hasAnyRole(ADMIN.name())
-//                .antMatchers(HttpMethod.PUT,"/v1/device/**").hasAuthority(DEVICE_WRITE.getPermission())
-//                .antMatchers(HttpMethod.PUT,"/v1/device/**").hasAnyRole(ADMIN.name())
-//                .antMatchers(HttpMethod.DELETE,"/v1/device/**").hasAuthority(DEVICE_WRITE.getPermission())
-//                .antMatchers(HttpMethod.DELETE,"/v1/device/**").hasAnyRole(ADMIN.name())
-//                .antMatchers(HttpMethod.GET,"/v1/device/**").hasAuthority(DEVICE_READ.getPermission())
-//                .antMatchers(HttpMethod.GET,"/v1/device/**").hasAnyRole(ADMIN.name(), ADMINTRAINEE.name())
-                .anyRequest().authenticated()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .httpBasic();
     }

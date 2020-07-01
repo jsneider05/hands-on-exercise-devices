@@ -1,0 +1,50 @@
+Bajar imagen de postgres
+>>>docker pull postgres
+
+Creamos volumen donde persistiremos nuestros datos, aun si el contenedor se elimina:
+>>>docker volume create postgresdbdata
+
+Correr contenedor de postgres
+>>>docker run -d --name postgres-db -e POSTGRES_PASSWORD=password -p 5432:5432 --mount src=postgresdbdata,dst=/var/lib/postgresql/data postgres:alpine
+
+Ejecutar consolta del contenedor de forma interactiva:
+>>>docker exec -it postgres-db bash
+
+Ejecutar cliente de postgres:
+bash-5.0# psql -U postgres
+
+Ver los usuarios:
+postgres=# \du
+
+Crear base de datos:
+postgres=# create database postgresdb;
+
+Ver lista de databases:
+postgres=# \l
+
+Conectarse a la base de datos postgresdb:
+postgres=# \c postgresdb
+
+Ver tablas:
+postgresdb=# \dt
+
+Describir tabla:
+postgresdb=# \d device
+
+Seleccionar * tabla device:
+postgresdb=# SELECT * FROM device;
+
+Crear extension:
+postgresdb=# CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+Seleccionar uuid:
+postgresdb=# SELECT uuid_generate_v4();
+
+Insertar device:
+postgresdb=# INSERT INTO device (id, name) VALUES (uuid_generate_v4(), 'Joan');
+
+
+
+
+Salir del cliente:
+postgres=# \q

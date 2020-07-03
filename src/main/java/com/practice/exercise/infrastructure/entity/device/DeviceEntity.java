@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "device")
+@Table(name = "devices")
 public class DeviceEntity implements Serializable {
 
     @Id

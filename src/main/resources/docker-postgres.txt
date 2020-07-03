@@ -48,3 +48,26 @@ postgresdb=# INSERT INTO device (id, name) VALUES (uuid_generate_v4(), 'Joan');
 
 Salir del cliente:
 postgres=# \q
+
+
+
+
+INSERT INTO users (id, email, enabled, password, user_name) VALUES (1, 'joan@gmail.com', true, '$2y$12$V2LZGXmlHsR95aZMG5DReeP5Ro1aPY0ZfL38zvnSf/gUaKi4XI9/u', 'Joan');
+INSERT INTO users (id, email, enabled, password, user_name) VALUES (2, 'angie@gmail.com', true, '$2y$12$V2LZGXmlHsR95aZMG5DReeP5Ro1aPY0ZfL38zvnSf/gUaKi4XI9/u', 'Angie');
+INSERT INTO roles (id, name) VALUES (1, 'ADMIN');
+INSERT INTO roles (id, name) VALUES (2, 'ADMINTRAINEE');
+INSERT INTO privileges (id, name) VALUES (1, 'device:write');
+INSERT INTO privileges (id, name) VALUES (2, 'device:read');
+INSERT INTO users_roles (user_id, role_id) VALUES (1, 1);
+INSERT INTO roles_privileges (role_id, privilege_id) VALUES (1, 1);
+INSERT INTO roles_privileges (role_id, privilege_id) VALUES (1, 2);
+INSERT INTO users_roles (user_id, role_id) VALUES (2, 2);
+INSERT INTO roles_privileges (role_id, privilege_id) VALUES (2, 2);
+
+	password->password
+
+UPDATE users SET password = '$2y$12$V2LZGXmlHsR95aZMG5DReeP5Ro1aPY0ZfL38zvnSf/gUaKi4XI9/u' WHERE id = 2;
+
+
+
+

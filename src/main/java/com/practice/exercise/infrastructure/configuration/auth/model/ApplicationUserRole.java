@@ -1,4 +1,4 @@
-package com.practice.exercise.infrastructure.configuration.security;
+package com.practice.exercise.infrastructure.configuration.auth.model;
 
 import com.google.common.collect.Sets;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -6,7 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.practice.exercise.infrastructure.configuration.security.ApplicationUserPermission.*;
+import static com.practice.exercise.infrastructure.configuration.auth.model.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
     ADMIN(Sets.newHashSet(DEVICE_WRITE, DEVICE_READ)),

@@ -1,4 +1,4 @@
-package com.practice.exercise.infrastructure.configuration.security;
+package com.practice.exercise.infrastructure.configuration.auth.model;
 
 public enum ApplicationUserPermission {
 //    DEVICE_CREATE("device:create"),

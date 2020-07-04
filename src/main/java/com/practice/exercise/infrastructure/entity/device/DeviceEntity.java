@@ -2,7 +2,7 @@ package com.practice.exercise.infrastructure.entity.device;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.UUID;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "devices")
@@ -11,32 +11,66 @@ public class DeviceEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true, nullable = false)
-    private UUID id;
+    private Long id;
 
-    @Column(name = "name", nullable = false, length = 255)
-    private String name;
+    @Column(name = "local_date_time", columnDefinition = "TIMESTAMP", nullable = false)
+    private LocalDateTime localDateTime;
+
+    @Column(name = "status", nullable = false, length = 255)
+    private String status;
+
+    /*
+    Using a Foreign Key
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "param_id", referencedColumnName = "id")
+     */
+    /*
+    Using a Shared Primary Key
+    @OneToOne(mappedBy = "device", cascade = CascadeType.ALL)
+     */
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "param_id", referencedColumnName = "id")
+    private ParamEntity param;
 
     public DeviceEntity() {
-        // Do Nothing
-    }
-    public DeviceEntity(UUID id, String name) {
-        this.id = id;
-        this.name = name;
     }
 
-    public UUID getId() {
+    public DeviceEntity(Long id, LocalDateTime localDateTime, String status, ParamEntity param) {
+        this.id = id;
+        this.localDateTime = localDateTime;
+        this.status = status;
+        this.param = param;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLocalDateTime(LocalDateTime localDateTime) {
+        this.localDateTime = localDateTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public ParamEntity getParam() {
+        return param;
+    }
+
+    public void setParam(ParamEntity param) {
+        this.param = param;
     }
 }

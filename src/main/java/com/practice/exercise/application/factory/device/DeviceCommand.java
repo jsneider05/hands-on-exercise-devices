@@ -1,20 +1,25 @@
 package com.practice.exercise.application.factory.device;
 
-import java.util.UUID;
+import java.time.LocalDateTime;
 
 public class DeviceCommand {
 
-    private String name;
+    private LocalDateTime localDateTime;
+    private String status;
+    private ParamCommand paramCommand;
 
     public DeviceCommand() {
-        // Do nothing
     }
 
-    public String getName() {
-        return name;
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getStatus() {
+        return status;
+    }
+
+    public ParamCommand getParamCommand() {
+        return paramCommand;
     }
 }

@@ -19,12 +19,12 @@ public class DeviceRepositoryImpl implements DeviceRepository {
         this.deviceJpaRepository = deviceJpaRepository;
         this.deviceMapper = deviceMapper;
     }
-
+//
     @Override
     public List<Device> selectAllDevices() {
         return this.deviceMapper.mapFromDeviceEntityList(deviceJpaRepository.findAll());
     }
-
+//
     @Override
     public Device saveDevice(Device device) {
         return this.deviceMapper.mapFromDeviceEntity(

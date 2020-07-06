@@ -18,4 +18,17 @@ public interface DeviceRepository {
      * @return An {@link Device} object
      */
     Device saveDevice(Device device);
+
+    /**
+     * Delete device
+     * @param id
+     */
+    void deleteDeviceById(Long id);
+
+    /**
+     * Update device
+     * @param device
+     * @return An {@link Device} object
+     */
+    Device updateDevice(Long id, Device device);
 }

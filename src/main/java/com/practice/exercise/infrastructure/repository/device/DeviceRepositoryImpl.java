@@ -19,12 +19,12 @@ public class DeviceRepositoryImpl implements DeviceRepository {
         this.deviceJpaRepository = deviceJpaRepository;
         this.deviceMapper = deviceMapper;
     }
-//
+
     @Override
     public List<Device> selectAllDevices() {
         return this.deviceMapper.mapFromDeviceEntityList(deviceJpaRepository.findAll());
     }
-//
+
     @Override
     public Device saveDevice(Device device) {
         return this.deviceMapper.mapFromDeviceEntity(
@@ -32,4 +32,18 @@ public class DeviceRepositoryImpl implements DeviceRepository {
                         this.deviceMapper.mapToDeviceEntity(device)
                 ));
     }
+
+    @Override
+    public void deleteDeviceById(Long id) {
+        this.deviceJpaRepository.deleteById(id);
+    }
+
+    @Override
+    public Device updateDevice(Long id, Device device) {
+        return this.deviceMapper.mapFromDeviceEntity(
+                this.deviceJpaRepository.save(
+                        this.deviceMapper.mapToDeviceEntity(device)
+                ));
+    }
+
 }

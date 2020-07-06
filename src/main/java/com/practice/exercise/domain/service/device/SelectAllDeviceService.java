@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class SelectAllDeviceService {
 
-    private DeviceRepository deviceRepository;
+    private final DeviceRepository deviceRepository;
 
     @Autowired
     public SelectAllDeviceService(@Qualifier("postgresJpaRepository") DeviceRepository deviceRepository) {

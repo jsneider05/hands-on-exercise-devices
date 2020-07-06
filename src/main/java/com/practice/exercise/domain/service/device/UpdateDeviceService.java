@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SaveDeviceService {
+public class UpdateDeviceService {
 
     private final DeviceRepository deviceRepository;
 
     @Autowired
-    public SaveDeviceService(DeviceRepository deviceRepository) {
+    public UpdateDeviceService(DeviceRepository deviceRepository) {
         this.deviceRepository = deviceRepository;
     }
 
-    public Device saveDevice(Device device) {
-        return this.deviceRepository.saveDevice(device);
+    public Device updateDevice(Long id, Device device) {
+        return this.deviceRepository.updateDevice(id, device);
     }
 }

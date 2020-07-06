@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 public class DeviceFactory {
 
     public Device mapFromDeviceCommand (DeviceCommand deviceCommand) {
-        return new Device(null, deviceCommand.getLocalDateTime(),
+        return new Device(deviceCommand.getId(), deviceCommand.getLocalDateTime(),
                 deviceCommand.getStatus(),
-                mapFromParamCommand(deviceCommand.getParamCommand()));
+                mapFromParamCommand(deviceCommand.getParam()));
     }
 
     private Param mapFromParamCommand (ParamCommand paramCommand) {
-        return new Param(null, paramCommand.getRotorSpeed(),
+        return new Param(paramCommand.getId(), paramCommand.getRotorSpeed(),
                 paramCommand.getSlack(),
                 paramCommand.getRootThreshold());
     }

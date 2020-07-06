@@ -7,10 +7,12 @@ import com.practice.exercise.application.handler.device.SelectDeviceHandler;
 import com.practice.exercise.application.handler.device.UpdateDeviceHandler;
 import com.practice.exercise.domain.model.device.Device;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestControllerAdvice
@@ -41,8 +43,10 @@ public class DeviceController {
 
     @GetMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ADMINTRAINEE')")
-    public List<Device> selectAllDevices() {
-        return selectDeviceHandler.selectAllDevices();
+    public List<Device> selectDevices(@RequestParam (value = "localDateTime", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime localDateTime,
+                                      @RequestParam (value = "status", required = false) String status,
+                                      @RequestParam (value = "rotorSpeed", required = false) Integer rotorSpeed) {
+        return selectDeviceHandler.selectDevices(localDateTime, status, rotorSpeed);
     }
 
     @PostMapping

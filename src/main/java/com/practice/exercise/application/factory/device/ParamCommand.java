@@ -9,7 +9,7 @@ public class ParamCommand {
 
     private Long id;
 
-    @Range(min = 1000, max = 5000)
+    @Range(min = 0, max = 5000)
     private int rotorSpeed;
 
     @DecimalMin(value = "0.0")

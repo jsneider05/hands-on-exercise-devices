@@ -21,7 +21,7 @@ public class DeviceRepositoryImpl implements DeviceRepository {
     }
 
     @Override
-    public List<Device> selectAllDevices() {
+    public List<Device> selectDevices() {
         return this.deviceMapper.mapFromDeviceEntityList(deviceJpaRepository.findAll());
     }
 

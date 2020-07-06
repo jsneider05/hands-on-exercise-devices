@@ -1,7 +1,7 @@
 package com.practice.exercise.application.factory.device;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
@@ -11,7 +11,7 @@ public class DeviceCommand {
 
     private Long id;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime localDateTime;
 
     @Pattern(regexp = "^(?!\\s*$).+", message = "{status.notValid}")

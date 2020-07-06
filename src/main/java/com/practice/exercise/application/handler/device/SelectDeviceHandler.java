@@ -1,23 +1,24 @@
 package com.practice.exercise.application.handler.device;
 
 import com.practice.exercise.domain.model.device.Device;
-import com.practice.exercise.domain.service.device.SelectAllDeviceService;
+import com.practice.exercise.domain.service.device.SelectDeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
 public class SelectDeviceHandler {
 
-    private final SelectAllDeviceService selectAllDeviceService;
+    private final SelectDeviceService selectDeviceService;
 
     @Autowired
-    public SelectDeviceHandler(SelectAllDeviceService selectAllDeviceService) {
-        this.selectAllDeviceService = selectAllDeviceService;
+    public SelectDeviceHandler(SelectDeviceService selectDeviceService) {
+        this.selectDeviceService = selectDeviceService;
     }
 
-    public List<Device> selectAllDevices() {
-        return selectAllDeviceService.selectAllDevices();
+    public List<Device> selectDevices(LocalDateTime localDateTime, String status, Integer rotorSpeed) {
+        return selectDeviceService.selectDevices(localDateTime, status, rotorSpeed);
     }
 }

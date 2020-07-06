@@ -10,7 +10,7 @@ public interface DeviceRepository {
      * Select all devices from database
      * @return List of {@link Device}
      */
-    List<Device> selectAllDevices();
+    List<Device> selectDevices();
 
     /**
      * Save a device

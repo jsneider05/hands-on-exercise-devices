@@ -1,6 +1,7 @@
 package com.practice.exercise.infrastructure.configuration.security;
 
 import com.practice.exercise.infrastructure.configuration.auth.service.ApplicationUserService;
+import com.practice.exercise.infrastructure.configuration.jwt.JwtUsernameAndPasswordAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
@@ -30,17 +32,14 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
+                .sessionManagement()
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager()))
                 .authorizeRequests()
                 .anyRequest()
-                .authenticated()
-                .and()
-                .httpBasic();
-//                .formLogin()
-//                .defaultSuccessUrl("/v1/device/list", true)
-//                .and()
-//                .rememberMe() // defaults to 2 weeks
-//                    .tokenValiditySeconds((int)TimeUnit.DAYS.toSeconds(21))
-//                    .key("somethingverysecured");
+                .authenticated();
+
     }
 
     @Override

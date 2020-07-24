@@ -8,7 +8,7 @@ server:
 
 spring:
   datasource:
-    jdbc-url: jdbc:postgresql://localhost:5432/postgresdb
+    jdbc-url: jdbc:postgresql://localhost:5433/postgresdb
     username: postgres
     password: password
     poll-size: 30

@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 public class DeviceCommand {
@@ -15,6 +16,7 @@ public class DeviceCommand {
     private LocalDateTime localDateTime;
 
     @Pattern(regexp = "^(?!\\s*$).+", message = "{status.notValid}")
+    @Size(min = 7, max = 7)
     private String status;
 
     @Valid

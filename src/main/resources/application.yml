@@ -22,3 +22,9 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
+
+application:
+  jwt:
+    secretKey: securesecuresecuresecuresecuresecuresecuresecure
+    tokenPrefix: Bearer
+    tokenExpirationAfterDays: 10

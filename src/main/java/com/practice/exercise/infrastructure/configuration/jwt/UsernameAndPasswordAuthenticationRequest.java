@@ -6,6 +6,7 @@ public class UsernameAndPasswordAuthenticationRequest {
     private String password;
 
     public UsernameAndPasswordAuthenticationRequest() {
+        // Do nothing
     }
 
     public String getUsername() {

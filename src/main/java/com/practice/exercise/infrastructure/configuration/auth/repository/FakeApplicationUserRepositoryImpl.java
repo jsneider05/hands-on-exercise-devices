@@ -3,6 +3,7 @@ package com.practice.exercise.infrastructure.configuration.auth.repository;
 import com.google.common.collect.Lists;
 import com.practice.exercise.infrastructure.configuration.auth.model.ApplicationUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 import static com.practice.exercise.infrastructure.configuration.auth.model.ApplicationUserRole.*;
 
+@Profile("test")
 @Repository("fakeApplicationUserRepository")
 public class FakeApplicationUserRepositoryImpl implements ApplicationUserRepository {
 

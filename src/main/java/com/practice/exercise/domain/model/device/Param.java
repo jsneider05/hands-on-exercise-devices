@@ -9,6 +9,7 @@ public class Param {
     private float rootThreshold;
 
     public Param() {
+        // Do nothing
     }
 
     public Param(Long id, int rotorSpeed, float slack, float rootThreshold) {

@@ -3,10 +3,11 @@ package com.practice.exercise.infrastructure.configuration;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
+@Profile("!test")
 @Configuration
+@PropertySource("classpath:application.yml")
 public class PostgresDatasource {
 
     @Bean
@@ -17,4 +18,5 @@ public class PostgresDatasource {
                 .type(HikariDataSource.class)
                 .build();
     }
+
 }

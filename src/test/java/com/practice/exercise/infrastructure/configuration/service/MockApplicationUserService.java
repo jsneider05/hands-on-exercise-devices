@@ -1,4 +1,4 @@
-package com.practice.exercise.infrastructure.configuration.auth.service;
+package com.practice.exercise.infrastructure.configuration.service;
 
 import com.practice.exercise.infrastructure.configuration.auth.repository.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,15 +8,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.test.context.ActiveProfiles;
 
-@Profile("!test")
+@Profile("test")
 @Service
-public class ApplicationUserService implements UserDetailsService {
+public class MockApplicationUserService implements UserDetailsService {
 
     private final ApplicationUserRepository applicationUserRepository;
 
     @Autowired
-    public ApplicationUserService(@Qualifier("postgresApplicationUserRepository") ApplicationUserRepository applicationUserRepository) {
+    public MockApplicationUserService(@Qualifier("fakeApplicationUserRepository") ApplicationUserRepository applicationUserRepository) {
         this.applicationUserRepository = applicationUserRepository;
     }
 

@@ -22,6 +22,10 @@ public class DeviceCommand {
     @Valid
     private ParamCommand param;
 
+    public DeviceCommand() {
+        // Do nothing
+    }
+
     public DeviceCommand(@JsonProperty("id") Long id,
                          @JsonProperty("localDateTime") LocalDateTime localDateTime,
                          @JsonProperty("status") String status,

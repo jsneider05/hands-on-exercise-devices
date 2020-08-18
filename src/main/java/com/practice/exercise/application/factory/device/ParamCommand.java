@@ -22,6 +22,10 @@ public class ParamCommand {
     @Digits(integer = 2, fraction = 2)
     private float rootThreshold;
 
+    public ParamCommand() {
+        // Do Nothing
+    }
+
     public ParamCommand(@JsonProperty("id") Long id,
                         @JsonProperty("rotorSpeed") int rotorSpeed,
                         @JsonProperty("slack") float slack,

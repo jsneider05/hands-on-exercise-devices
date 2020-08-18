@@ -9,8 +9,8 @@ public class Device {
     private String status;
     private Param param;
 
-    public Long getId() {
-        return id;
+    public Device() {
+        // Do nothing
     }
 
     public Device(Long id, LocalDateTime localDateTime, String status, Param param) {
@@ -18,6 +18,10 @@ public class Device {
         this.localDateTime = localDateTime;
         this.status = status;
         this.param = param;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {

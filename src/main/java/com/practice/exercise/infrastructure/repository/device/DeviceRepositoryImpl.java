@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("postgresJpaRepository")
+@Repository
 public class DeviceRepositoryImpl implements DeviceRepository {
 
     private DeviceJpaRepository deviceJpaRepository;

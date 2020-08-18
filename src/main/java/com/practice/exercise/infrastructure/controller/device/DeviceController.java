@@ -46,7 +46,7 @@ public class DeviceController {
     public List<Device> selectDevices(@RequestParam (value = "localDateTime", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime localDateTime,
                                       @RequestParam (value = "status", required = false) String status,
                                       @RequestParam (value = "rotorSpeed", required = false) Integer rotorSpeed) {
-        return selectDeviceHandler.selectDevices(localDateTime, status, rotorSpeed);
+        return selectDeviceHandler.select(localDateTime, status, rotorSpeed);
     }
 
     @PostMapping
@@ -65,6 +65,6 @@ public class DeviceController {
     @PutMapping(path = "{id}")
     public Device updateDevice(@PathVariable(value = "id", required = true) Long id,
                              @RequestBody @Valid DeviceCommand deviceCommand) {
-        return this.updateDeviceHandler.updateDevice(id, deviceCommand);
+        return this.updateDeviceHandler.update(id, deviceCommand);
     }
 }

@@ -19,7 +19,7 @@ public class UpdateDeviceHandler {
         this.deviceFactory = deviceFactory;
     }
 
-    public Device updateDevice(Long id, DeviceCommand deviceCommand) {
-        return this.updateDeviceService.updateDevice(id, this.deviceFactory.mapFromDeviceCommand(deviceCommand));
+    public Device update(Long id, DeviceCommand deviceCommand) {
+        return this.updateDeviceService.update(id, this.deviceFactory.mapFromDeviceCommand(deviceCommand));
     }
 }

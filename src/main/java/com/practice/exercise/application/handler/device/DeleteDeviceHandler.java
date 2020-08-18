@@ -15,6 +15,6 @@ public class DeleteDeviceHandler {
     }
 
     public void deleteDeviceById(Long id) {
-        this.deleteDeviceService.deleteDeviceById(id);
+        this.deleteDeviceService.deleteById(id);
     }
 }

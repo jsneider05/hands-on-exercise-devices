@@ -18,7 +18,7 @@ public class SelectDeviceHandler {
         this.selectDeviceService = selectDeviceService;
     }
 
-    public List<Device> selectDevices(LocalDateTime localDateTime, String status, Integer rotorSpeed) {
-        return selectDeviceService.selectDevices(localDateTime, status, rotorSpeed);
+    public List<Device> select(LocalDateTime localDateTime, String status, Integer rotorSpeed) {
+        return selectDeviceService.select(localDateTime, status, rotorSpeed);
     }
 }

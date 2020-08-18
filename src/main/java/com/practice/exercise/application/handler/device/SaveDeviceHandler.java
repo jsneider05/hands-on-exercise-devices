@@ -20,6 +20,6 @@ public class SaveDeviceHandler {
     }
 
     public Device saveDevice(DeviceCommand deviceCommand) {
-        return this.saveDeviceService.saveDevice(this.deviceFactory.mapFromDeviceCommand(deviceCommand));
+        return this.saveDeviceService.save(this.deviceFactory.mapFromDeviceCommand(deviceCommand));
     }
 }

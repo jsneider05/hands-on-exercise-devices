@@ -17,7 +17,7 @@ public class ActiveMqConsumer {
         this.incrementCounterHandler = incrementCounterHandler;
     }
 
-    @JmsListener(destination = DEVICE_COUNTER_QUEUE)
+    @JmsListener(destination = DEVICE_COUNTER_QUEUE, containerFactory = CONTAINER_FACTORY)
     public void consumeDeviceCounter(String message) {
         this.incrementCounterHandler.count(message);
     }

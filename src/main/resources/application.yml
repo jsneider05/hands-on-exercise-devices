@@ -23,10 +23,10 @@ spring:
     ansi:
       enabled: ALWAYS
   activemq:
-    broker-url: tcp://localhost:61616
-    user: admin
+    brokerUrl: tcp://localhost:61616
+    userName: admin
     password: admin
-    in-memory: false
+    concurrency: 1-1
 
 application:
   jwt:

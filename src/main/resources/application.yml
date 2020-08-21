@@ -22,8 +22,11 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
-#  main:
-#    allow-bean-definition-overriding: true
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    in-memory: false
 
 application:
   jwt:

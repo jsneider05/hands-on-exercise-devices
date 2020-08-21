@@ -6,10 +6,12 @@ import javax.persistence.*;
 @Table(name = "params")
 public class ParamEntity {
 
-
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "params_id_seq",
+            sequenceName = "params_id_seq",
+            allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "params_id_seq")
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 

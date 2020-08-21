@@ -9,7 +9,11 @@ import java.time.LocalDateTime;
 public class DeviceEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "devices_id_seq",
+            sequenceName = "devices_id_seq",
+            allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "devices_id_seq")
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
